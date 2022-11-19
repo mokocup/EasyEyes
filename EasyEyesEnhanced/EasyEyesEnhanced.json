@@ -1,9 +1,9 @@
 {
     "Author": "mokocup",
-    "Name": "EasyEyes",
+    "Name": "EasyEyesEnhanced",
     "Punchline": "Hide annoying or distracting VFXs",
     "Description": "Ehhanced Easy Eyes Plugin - A fork that improve Easy Eyes plugin by ocealot",
-    "InternalName": "EasyEyes",
+    "InternalName": "EasyEyesEnhanced",
     "AssemblyVersion": "1.2.3.0",
     "RepoUrl": "https://github.com/mokocup/EasyEyes",
     "ApplicableVersion": "any",

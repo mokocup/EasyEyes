@@ -1,4 +1,4 @@
-using EasyEyes.Structs.Vfx;
+using EasyEyesEnhanced.Structs.Vfx;
 using ImGuiNET;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using VFXSelect.UI;
-using static EasyEyes.Plugin;
+using static EasyEyesEnhanced.Plugin;
 
-namespace EasyEyes.UI {
+namespace EasyEyesEnhanced.UI {
     public class LogTab {
         public Plugin Plugin;
 

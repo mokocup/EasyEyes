@@ -4,8 +4,6 @@ using System.IO;
 using Dalamud.Game.Command;
 using Dalamud.Plugin;
 using System.Reflection;
-using EasyEyes.UI;
-using EasyEyes.Structs.Vfx;
 using VFXSelect;
 using VFXSelect.UI;
 using Dalamud.Game.ClientState;
@@ -13,10 +11,12 @@ using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game;
 using Dalamud.Data;
 using Dalamud.Interface.ImGuiFileDialog;
+using EasyEyesEnhanced.Structs.Vfx;
+using EasyEyesEnhanced.UI;
 
-namespace EasyEyes {
+namespace EasyEyesEnhanced {
     public class Plugin : IDalamudPlugin {
-        public string Name => "EasyEyes";
+        public string Name => "EasyEyesEnhanced";
         private const string CommandName = "/easy";
 
         public static DalamudPluginInterface PluginInterface { get; private set; }

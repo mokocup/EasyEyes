@@ -3,7 +3,7 @@ using Dalamud.Game.ClientState.Objects.Types;
 using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace EasyEyes.Structs.Vfx {
+namespace EasyEyesEnhanced.Structs.Vfx {
 
     /*
         *(undefined4 *)(vfx + 0x50) = DAT_01bb2850;

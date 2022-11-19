@@ -4,18 +4,17 @@
         <LangVersion>preview</LangVersion>
         <AssemblyTitle>VFXEditor</AssemblyTitle>
         <Company></Company>
-        <Product>EasyEyes</Product>
+        <Product>EasyEyesEnhanced</Product>
         <Copyright>Copyright © 2020</Copyright>
         <FileVersion>1.2.3.0</FileVersion>
         <AssemblyVersion>1.2.3.0</AssemblyVersion>
         <OutputPath>bin\$(Configuration)\</OutputPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <AssemblyName>EasyEyes</AssemblyName>
-        <RootNamespace>EasyEyes</RootNamespace>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <Platforms>AnyCPU;x64</Platforms>
+        <PackageId>EasyEyesEnhanced</PackageId>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,7 +80,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="EasyEyes.json">
+      <None Update="EasyEyesEnhanced.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Files\monster_vfx.json">
@@ -97,7 +96,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <NativeLibs Remove="EasyEyes.json" />
+      <NativeLibs Remove="EasyEyesEnhanced.json" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace EasyEyes.Structs.Vfx {
+namespace EasyEyesEnhanced.Structs.Vfx {
     public unsafe class StaticVfx : BaseVfx {
 
         public StaticVfx( Plugin plugin, string path, Vector3 position ) : base( plugin, path ) {

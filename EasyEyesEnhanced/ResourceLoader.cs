@@ -5,14 +5,13 @@ using System.Text;
 using Dalamud.Plugin;
 using Reloaded.Hooks;
 using System.Threading.Tasks;
-using EasyEyes.Util;
-using EasyEyes.Structs;
-
 using Dalamud.Hooking;
 using Reloaded.Hooks.Definitions.X64;
 using System.Threading;
+using EasyEyesEnhanced.Structs;
+using EasyEyesEnhanced.Util;
 
-namespace EasyEyes {
+namespace EasyEyesEnhanced {
     public class ResourceLoader : IDisposable
     {
         private Plugin Plugin { get; set; }

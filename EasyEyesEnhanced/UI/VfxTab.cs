@@ -6,7 +6,7 @@ using System.IO;
 using System.Numerics;
 using VFXSelect.UI;
 
-namespace EasyEyes.UI {
+namespace EasyEyesEnhanced.UI {
     public class VfxTab {
         public Plugin Plugin;
 

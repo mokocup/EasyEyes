@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace EasyEyes.Structs {
+namespace EasyEyesEnhanced.Structs {
     [StructLayout( LayoutKind.Explicit )]
     public unsafe struct ResourceHandle {
         [FieldOffset( 0x48 )]

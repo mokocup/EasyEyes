@@ -1,9 +1,9 @@
 using System.Numerics;
-using EasyEyes.Structs.Vfx;
+using EasyEyesEnhanced.Structs.Vfx;
 using ImGuiNET;
 using VFXSelect.UI;
 
-namespace EasyEyes.UI
+namespace EasyEyesEnhanced.UI
 {
     public class MainInterface {
         private readonly Plugin Plugin;

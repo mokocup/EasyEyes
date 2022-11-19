@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using VFXSelect.UI;
 
-namespace EasyEyes {
+namespace EasyEyesEnhanced {
 
     [Serializable]
     public class SavedItem {
