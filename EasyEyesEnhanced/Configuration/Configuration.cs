@@ -75,6 +75,11 @@ namespace EasyEyesEnhanced {
             Save();
         }
 
+        public void ClearItem() {
+            Items.Clear();
+            Save();
+        }
+
         public void Save() {
             _pluginInterface.SavePluginConfig( this );
         }

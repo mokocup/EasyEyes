@@ -38,6 +38,12 @@ namespace EasyEyesEnhanced.UI {
             if( ImGui.Button( $"{( char )FontAwesomeIcon.Search}", new Vector2( 30, 23 ) ) ) {
                 Plugin.MainUI.SelectUI.Show(showLocal: false);
             }
+            
+            if( MainInterface.RemoveButton( "Delete All" ) )
+            {
+                Plugin.Config.ClearItem(  );
+            }
+            
             ImGui.PopFont();
 
             ImGui.SetCursorPosY( ImGui.GetCursorPosY() + 5 );
