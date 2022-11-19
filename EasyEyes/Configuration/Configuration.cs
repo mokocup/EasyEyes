@@ -42,6 +42,21 @@ namespace EasyEyes {
             return false;
         }
 
+        public bool AddPath( List< string > pathList )
+        {
+            foreach( var path in pathList )
+            {
+                foreach(var item in Items ) {
+                    if(item.AVFXPath == path ) {
+                        continue;
+                    }
+                    Items.Add( new SavedItem( path ) );
+                }
+            }
+            Save();
+            return true;
+        }
+        
         // ============
         public bool AddPath(string path, out SavedItem newItem ) {
             newItem = null;

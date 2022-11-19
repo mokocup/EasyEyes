@@ -46,6 +46,12 @@ namespace EasyEyes.UI {
             if( ImGui.Button( "Add To Blacklist" + Id ) && !disabled ) {
                 Plugin.Config.AddPath( SelectedLogPath, out var newItem );
             }
+            if( ImGui.Button( "Add All To Blacklist" + Id ) )
+            {
+                Plugin.Config.AddPath( Plugin.Recorded.Select( x => x.path ).ToList() );
+                Plugin.ClearRecord();
+                SelectedLogPath = "";
+            }
             if( disabled ) ImGui.PopStyleVar();
             // ======== SPAWN / REMOVE =========
             Plugin.MainUI.DrawSpawnButton( "Spawn", Id, SelectedLogPath, disabled );
