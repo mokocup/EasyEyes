@@ -112,6 +112,14 @@ namespace EasyEyes {
         public void AddRecord( string path ) {
             if( !DoRecord ) return;
 
+            Boolean existRecorded = Recorded.Exists( record => record.path.Equals( path ) );
+
+            if( existRecorded ) return;
+            
+            Boolean existBlacklist = Config.Items.Exists( item => item.AVFXPath.Equals( path ) );
+
+            if( existBlacklist ) return;
+            
             var item = new RecordedItem {
                 path = path
             };
