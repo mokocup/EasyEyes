@@ -42,17 +42,22 @@ namespace EasyEyesEnhanced.UI {
             var disabled = string.IsNullOrEmpty( SelectedLogPath );
             // ========= ADD ========
             if( disabled ) ImGui.PushStyleVar( ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f );
+            
             ImGui.SameLine();
+            
             if( ImGui.Button( "Add To Blacklist" + Id ) && !disabled ) {
                 Plugin.Config.AddPath( SelectedLogPath, out var newItem );
             }
+            if( disabled ) ImGui.PopStyleVar();
+
+            ImGui.SameLine();
             if( ImGui.Button( "Add All To Blacklist" + Id ) )
             {
                 Plugin.Config.AddPath( Plugin.Recorded.Select( x => x.path ).ToList() );
                 Plugin.ClearRecord();
                 SelectedLogPath = "";
             }
-            if( disabled ) ImGui.PopStyleVar();
+            
             // ======== SPAWN / REMOVE =========
             Plugin.MainUI.DrawSpawnButton( "Spawn", Id, SelectedLogPath, disabled );
 

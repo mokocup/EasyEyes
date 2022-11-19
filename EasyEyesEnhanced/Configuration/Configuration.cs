@@ -46,10 +46,9 @@ namespace EasyEyesEnhanced {
         {
             foreach( var path in pathList )
             {
-                foreach(var item in Items ) {
-                    if(item.AVFXPath == path ) {
-                        continue;
-                    }
+                SavedItem item = Items.Find( savedItem => savedItem.AVFXPath == path );
+                if( item == null )
+                {
                     Items.Add( new SavedItem( path ) );
                 }
             }
