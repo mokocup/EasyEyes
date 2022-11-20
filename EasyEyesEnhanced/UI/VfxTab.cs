@@ -39,13 +39,12 @@ namespace EasyEyesEnhanced.UI {
                 Plugin.MainUI.SelectUI.Show(showLocal: false);
             }
             
+            ImGui.PopFont();
             if( MainInterface.RemoveButton( "Delete All" ) )
             {
                 Plugin.Config.ClearItem(  );
             }
             
-            ImGui.PopFont();
-
             ImGui.SetCursorPosY( ImGui.GetCursorPosY() + 5 );
 
             ImGui.BeginChild( Id + "Tree", new Vector2(-1, ImGui.GetContentRegionAvail().Y - 22), true );
