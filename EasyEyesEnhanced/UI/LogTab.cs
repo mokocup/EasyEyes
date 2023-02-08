@@ -39,27 +39,35 @@ namespace EasyEyesEnhanced.UI {
                 Plugin.ClearRecord();
                 SelectedLogPath = "";
             }
-            var disabled = string.IsNullOrEmpty( SelectedLogPath );
+            var selectDisabled = string.IsNullOrEmpty( SelectedLogPath );
+            var multiDisabled = Plugin.Recorded.Count == 0;
+                
+
             // ========= ADD ========
-            if( disabled ) ImGui.PushStyleVar( ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f );
+            if( selectDisabled ) ImGui.PushStyleVar( ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f );
             
             ImGui.SameLine();
             
-            if( ImGui.Button( "Add To Blacklist" + Id ) && !disabled ) {
+            if( ImGui.Button( "Add To Blacklist" + Id ) && !selectDisabled ) {
                 Plugin.Config.AddPath( SelectedLogPath, out var newItem );
             }
-            if( disabled ) ImGui.PopStyleVar();
+            
+            if( selectDisabled ) ImGui.PopStyleVar();
+
+            if( multiDisabled ) ImGui.PushStyleVar( ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f );
 
             ImGui.SameLine();
-            if( ImGui.Button( "Add All To Blacklist" + Id ) )
+            if( ImGui.Button( "Add All To Blacklist" + Id ) && !multiDisabled )
             {
                 Plugin.Config.AddPath( Plugin.Recorded.Select( x => x.path ).ToList() );
                 Plugin.ClearRecord();
                 SelectedLogPath = "";
             }
             
+            if( multiDisabled ) ImGui.PopStyleVar();
+            
             // ======== SPAWN / REMOVE =========
-            Plugin.MainUI.DrawSpawnButton( "Spawn", Id, SelectedLogPath, disabled );
+            Plugin.MainUI.DrawSpawnButton( "Spawn", Id, SelectedLogPath, selectDisabled );
 
             //=======================
             ImGui.BeginChild( Id + "Tree", new Vector2(-1, -1), true );
