@@ -18,7 +18,16 @@ namespace EasyEyesEnhanced.UI {
         }
 
         public string SelectedLogPath = "";
+        
+        public string FilterVFXPath = "";
+
         public void Draw() {
+            var displayItems = Plugin.Recorded.FindAll( x=>x.path.Contains( FilterVFXPath ) );
+
+            if( !displayItems.Exists( x => x.path.Equals( SelectedLogPath ) ) )
+            {
+                SelectedLogPath = "";
+            }
             var ret = ImGui.BeginTabItem( "Recent VFXs##MainInterfaceTabs" );
             if( !ret ) return;
 
@@ -35,10 +44,12 @@ namespace EasyEyesEnhanced.UI {
                 }
             }
             ImGui.SameLine();
+            
             if( ImGui.Button( "Reset" + Id ) ) {
                 Plugin.ClearRecord();
                 SelectedLogPath = "";
             }
+            
             var selectDisabled = string.IsNullOrEmpty( SelectedLogPath );
             var multiDisabled = Plugin.Recorded.Count == 0;
                 
@@ -59,7 +70,7 @@ namespace EasyEyesEnhanced.UI {
             ImGui.SameLine();
             if( ImGui.Button( "Add All To Blacklist" + Id ) && !multiDisabled )
             {
-                Plugin.Config.AddPath( Plugin.Recorded.Select( x => x.path ).ToList() );
+                Plugin.Config.AddPath( displayItems.Select( x => x.path ).ToList() );
                 Plugin.ClearRecord();
                 SelectedLogPath = "";
             }
@@ -69,14 +80,17 @@ namespace EasyEyesEnhanced.UI {
             // ======== SPAWN / REMOVE =========
             Plugin.MainUI.DrawSpawnButton( "Spawn", Id, SelectedLogPath, selectDisabled );
 
+            // ======== Filter input =========
+            ImGui.InputText( Id + "Filter", ref FilterVFXPath, 255 );
+            
             //=======================
             ImGui.BeginChild( Id + "Tree", new Vector2(-1, -1), true );
-            var items = Plugin.Recorded; // TODO: filtering
-            if( items.Count > 0 ) {
-                VFXSelectDialog.DisplayVisible( items.Count, out var preItems, out var showItems, out var postItems, out var itemHeight );
+
+            if( displayItems.Count > 0 ) {
+                VFXSelectDialog.DisplayVisible( displayItems.Count, out var preItems, out var showItems, out var postItems, out var itemHeight );
                 ImGui.SetCursorPosY( ImGui.GetCursorPosY() + preItems * itemHeight );
                 var idx = 0;
-                foreach( var item in items ) {
+                foreach( var item in displayItems ) {
                     if( idx < preItems || idx > ( preItems + showItems ) ) { idx++; continue; }
                     if( ImGui.Selectable( item.path + Id + idx, SelectedLogPath == item.path ) ) {
                         SelectedLogPath = item.path;
