@@ -40,8 +40,9 @@ namespace EasyEyesEnhanced.UI {
             }
             
             ImGui.PopFont();
-            if( MainInterface.RemoveButton( "Delete All" ) )
+            if( MainInterface.RemoveButton( "Clear All" ) )
             {
+                SelectedVfx = null;
                 Plugin.Config.ClearItem(  );
             }
             
