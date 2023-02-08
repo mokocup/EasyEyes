@@ -34,7 +34,7 @@ namespace EasyEyesEnhanced {
         public MainInterface MainUI;
 
         public string PluginDebugTitleStr;
-        public string AssemblyLocation { get; set; } = Assembly.GetExecutingAssembly().Location;
+        public string RootLocation;
         public string FileLocation;
 
         public Plugin(
@@ -61,12 +61,14 @@ namespace EasyEyesEnhanced {
             CommandManager.AddHandler( CommandName, new CommandInfo( OnCommand ) {
                 HelpMessage = "toggle ui"
             } );
-
-            FileLocation = Path.Combine( Path.GetDirectoryName( AssemblyLocation ), "does_not_exist.avfx" );
-
+            
+            RootLocation = PluginInterface.AssemblyLocation.DirectoryName;
+            
+            FileLocation = Path.Combine( RootLocation, "does_not_exist.avfx" );
+            
             SheetManager.Initialize(
-                Path.Combine( Path.GetDirectoryName( AssemblyLocation ), "Files", "npc.csv" ),
-                Path.Combine( Path.GetDirectoryName( AssemblyLocation ), "Files", "monster_vfx.json" ),
+                Path.Combine( RootLocation, "Files", "npc.csv" ),
+                Path.Combine( RootLocation, "Files", "monster_vfx.json" ),
                 DataManager,
                 PluginInterface
             );
